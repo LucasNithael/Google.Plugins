@@ -1,0 +1,231 @@
+/* Tema base compartilhado pelo painel e seus controles. */
+:root {
+  color-scheme: dark;
+  font: 14px/1.5 system-ui,sans-serif;
+  background: #10151e;
+  color: #e7edf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Cabe?alho e indicador visual do estado de captura. */
+header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid #2a3445;
+  background: linear-gradient(135deg,#19273b,#111822);
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #75bbff;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 7px 0;
+  letter-spacing: -.7px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #77849a;
+  margin-left: 10px;
+}
+
+.live .dot {
+  background: #57e3ad;
+  box-shadow: 0 0 12px #57e3ad80;
+}
+
+#site {
+  margin: 0;
+  color: #a5b5cc;
+  overflow-wrap: anywhere;
+}
+
+main {
+  padding: 18px 16px;
+}
+
+/* Controles e filtros do painel lateral. */
+.toolbar,
+.filters,
+.detail-heading {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar button:first-child {
+  flex: 1;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  border: 1px solid #344157;
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: #1a2331;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #75bbff;
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: default;
+}
+
+.primary {
+  background: #89c4ff;
+  color: #102139;
+  font-weight: 700;
+  border: 0;
+}
+
+input {
+  width: 100%;
+  margin: 6px 0 10px;
+}
+
+label,
+.muted,
+footer {
+  color: #9baac0;
+  font-size: 12px;
+}
+
+.filters {
+  flex-wrap: wrap;
+}
+
+.filters select {
+  flex: 1;
+  min-width: 80px;
+  font-size: 12px;
+}
+
+#capture-status {
+  font-size: 12px;
+  color: #a4b6ce;
+}
+
+#notice {
+  color: #ffd38b;
+  font-size: 12px;
+}
+
+/* Lista de chamadas; URLs longas podem quebrar linha. */
+#requests {
+  display: grid;
+  gap: 8px;
+}
+
+.request {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 12px;
+  background: #182130;
+}
+
+.request.selected {
+  border-color: #89c4ff;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 11px;
+}
+
+.method {
+  color: #8fc8ff;
+  font-weight: 700;
+}
+
+.status {
+  margin-left: auto;
+  color: #70dfb0;
+}
+
+.status.bad {
+  color: #ff9d9d;
+}
+
+.path {
+  display: block;
+  overflow-wrap: anywhere;
+  font: 12px/1.6 ui-monospace,monospace;
+  margin-top: 6px;
+}
+
+.host {
+  display: block;
+  color: #99aac1;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  padding: 28px 14px;
+  text-align: center;
+  color: #9baac0;
+  border: 1px dashed #344157;
+  border-radius: 10px;
+}
+
+/* Detalhes da chamada selecionada. */
+#details {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #3e536f;
+  border-radius: 10px;
+}
+
+.detail-heading {
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 12px/1.7 ui-monospace,monospace;
+}
+
+footer {
+  padding: 16px;
+  border-top: 1px solid #2a3445;
+  font-size: 11px;
+}
+
+/* Foco vis?vel para navega??o por teclado. */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #89c4ff;
+  outline-offset: 2px;
+}

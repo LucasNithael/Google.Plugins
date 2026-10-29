@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Radar de APIs</title>
+    <link rel="stylesheet" href="panel.css">
+  </head>
+  <body>
+    <!-- O domínio e o indicador de captura acompanham a aba ativa. -->
+    <header>
+      <span class="eyebrow">NETWORK · LOCAL</span>
+      <h1>Radar de APIs<span class="dot"></span></h1>
+      <p id="site">Identificando a aba…</p>
+    </header>
+
+    <main>
+      <div class="toolbar">
+        <button id="toggle" class="primary" disabled>Iniciar captura</button>
+        <button id="clear" disabled>Limpar</button>
+      </div>
+      <p id="capture-status" role="status">Captura pausada</p>
+
+      <!-- Filtros locais: não alteram o histórico armazenado pelo worker. -->
+      <label for="search">Buscar endpoint</label>
+      <input id="search" type="search" placeholder="Domínio ou trecho da URL">
+      <div class="filters">
+        <select id="type" aria-label="Tipo de chamada">
+          <option value="api">Fetch / XHR</option>
+          <option value="all">Todas as chamadas HTTP</option>
+        </select>
+
+        <select id="method" aria-label="Método">
+          <option value="">Métodos</option>
+          <option>GET</option>
+          <option>POST</option>
+          <option>PUT</option>
+          <option>PATCH</option>
+          <option>DELETE</option>
+          <option>OPTIONS</option>
+          <option>HEAD</option>
+        </select>
+
+        <select id="status" aria-label="Status">
+          <option value="">Status</option>
+          <option value="2">2xx</option>
+          <option value="3">3xx</option>
+          <option value="4">4xx</option>
+          <option value="5">5xx</option>
+          <option value="error">Falhas</option>
+        </select>
+      </div>
+      <p id="count" class="muted"></p>
+      <p id="notice" role="status"></p>
+
+      <!-- Lista e detalhes são preenchidos com texto, sem interpretar HTML da rede. -->
+      <section id="requests" aria-label="Chamadas capturadas"></section>
+      <section id="details" hidden>
+        <div class="detail-heading">
+          <h2>Detalhes da chamada</h2>
+          <button id="close" aria-label="Fechar detalhes">×</button>
+        </div>
+        <button id="copy">Copiar URL</button>
+        <pre id="detail-content"></pre>
+      </section>
+    </main>
+
+    <footer>
+      Até 500 chamadas por aba · Histórico nesta sessão.<br>
+      Ative a captura antes de executar a ação. Respostas não são capturadas.
+    </footer>
+
+    <script src="panel.js"></script>
+  </body>
+</html>
